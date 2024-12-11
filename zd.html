@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Практические задания</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Общие стили для розового фона */
+        body {
+            background-color: #ffb6c1; /* светло-розовый фон для страницы */
+            color: #ff4081; /* текст розового цвета */
+        }
+
+        h1, h2, p {
+            color: #e91e63; /* темно-розовый для заголовков и параграфов */
+        }
+
+        .navbar {
+            background-color: #f06292; /* розовый фон для навигации */
+        }
+
+        .navbar-brand, .nav-link {
+            color: #fff !important; /* Белый текст для навигации */
+        }
+
+        .btn-primary, .btn-success {
+            background-color: #ec407a; /* кнопки розового оттенка */
+            border: none;
+        }
+
+        .btn-primary:hover, .btn-success:hover {
+            background-color: #d81b60; /* темно-розовый цвет при наведении */
+        }
+
+        .bg-lightpink {
+            background-color: #f8bbd0; /* светлый розовый фон для элементов */
+        }
+
+        .bg-pink {
+            background-color: #f48fb1; /* обычный розовый */
+        }
+
+        .bg-deepskyblue {
+            background-color: #f48fb1; /* розовый */
+        }
+
+        .bg-hotpink {
+            background-color: #ec407a; /* яркий розовый */
+        }
+
+        .rotating-image {
+            transition: transform 0.5s ease;
+            cursor: pointer;
+        }
+
+        .rotating-image:hover {
+            transform: rotate(360deg);
+        }
+
+        /* Стилизация таблицы с розовым оттенком */
+        table {
+            background-color: #f8bbd0;
+            color: #e91e63;
+        }
+
+        table th, table td {
+            border: 1px solid #f06292;
+        }
+
+        table th {
+            background-color: #f48fb1;
+        }
+
+        /* Стили для параграфа с анимацией */
+        #colorChangeText {
+            transition: background-color 0.4s ease;
+            cursor: pointer;
+            padding: 15px;
+        }
+
+        /* Анимация для заголовка */
+        #newHeader {
+            transition: transform 0.3s ease-in-out, color 0.5s ease;
+        }
+
+        #newHeader:hover {
+            transform: scale(1.05);
+            color: #ff4081;
+        }
+
+    </style>
+</head>
+
+<body>
+    <!-- Навигация -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Мой Розовый Сайт</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMenu">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarMenu">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link text-light" href="index.html">Главная</a></li>
+        <li class="nav-item"><a class="nav-link text-light" href="semester1.html">Первый семестр</a></li>
+        <li class="nav-item"><a class="nav-link text-light" href="semester2.html">Второй семестр</a></li>
+        <li class="nav-item"><a class="nav-link text-light" href="services.html">Услуги</a></li>
+        <li class="nav-item"><a class="nav-link text-light" href="zd.html">Задания</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#loginModal" data-bs-toggle="modal">Вход</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mt-5">
+        <!-- Заголовок с анимацией -->
+        <h1 id="newHeader">Добро пожаловать в мир практических заданий!</h1>
+        <p>Это страница с примерами анимаций и динамических элементов для практики.</p>
+
+        <!-- Фронтенд секция -->
+        <section id="frontendSection" class="mt-4">
+            <h2>Фронтенд Задания</h2>
+            <p id="colorChangeText" class="bg-lightpink p-4 rounded">
+                Кликните сюда, чтобы изменить цвет фона!
+            </p>
+        </section>
+
+        <!-- Кнопка для показа таблицы -->
+        <section class="mt-4">
+            <h2>Темы Лекций</h2>
+            <button id="toggleLectures" class="btn btn-primary">Показать темы</button>
+            <table id="lecturesList" class="table mt-3" style="display: none;">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Название темы</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>Основы веб-разработки</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>CSS и его возможности</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>JavaScript для начинающих</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- Фотография студента -->
+        <section class="mt-4">
+            <h2>Студент на фото</h2>
+            <img id="studentImage" src="c:\Users\killer\Desktop\img\c8cc24bba37a25c009647b8875aae0e3.jpg" alt="Фото студента"
+                class="rotating-image rounded-circle shadow-lg" width="150">
+        </section>
+    </div>
+
+    <script>
+        // Смена фона через классы розовых оттенков
+        const colorChangeParagraph = document.getElementById('colorChangeText');
+        colorChangeParagraph.addEventListener('click', function () {
+            // Переключаем классы для изменения фона
+            if (colorChangeParagraph.classList.contains('bg-lightpink')) {
+                colorChangeParagraph.classList.remove('bg-lightpink');
+                colorChangeParagraph.classList.add('bg-pink');
+            } else if (colorChangeParagraph.classList.contains('bg-pink')) {
+                colorChangeParagraph.classList.remove('bg-pink');
+                colorChangeParagraph.classList.add('bg-hotpink');
+            } else if (colorChangeParagraph.classList.contains('bg-hotpink')) {
+                colorChangeParagraph.classList.remove('bg-hotpink');
+                colorChangeParagraph.classList.add('bg-lightpink');
+            }
+        });
+
+        // Переключение видимости таблицы
+        const toggleButton = document.getElementById('toggleLectures');
+        const lecturesTable = document.getElementById('lecturesList');
+
+        toggleButton.addEventListener('click', function () {
+            lecturesTable.style.display = lecturesTable.style.display === 'none' ? 'table' : 'none';
+        });
+
+        // Обработчики событий для изображения
+        const studentPhoto = document.getElementById('studentImage');
+        studentPhoto.addEventListener('click', function () {
+            studentPhoto.src = "c:\Users\killer\Desktop\img\8ae9ed1a33832cc81db2cd8b597aac71.jpg";
+        });
+
+        studentPhoto.addEventListener('dblclick', function () {
+            alert("Береги свои любимые моменты!");
+        });
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
